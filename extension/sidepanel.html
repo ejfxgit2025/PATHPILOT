@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PathPilot — Mission Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- ── HEADER ─────────────────────────────────────── -->
+    <header class="header">
+      <div class="logo">PATHPILOT</div>
+      <div class="header-right">
+        <button class="protect-toggle" id="protect-toggle" title="Toggle Protection Mode">
+          🛡️ PROTECTION: <span id="protect-status-text">OFF</span>
+        </button>
+        <div class="live-indicator" id="live-indicator">
+          <span class="dot"></span>
+          STANDBY
+        </div>
+      </div>
+    </header>
+
+    <!-- ── PROTECTION MODE SCAM OVERLAY ──────────────────── -->
+    <div id="protect-overlay" class="protect-overlay" style="display:none;" role="alert">
+      <div class="protect-overlay-inner">
+        <div class="protect-overlay-icon">⚠️</div>
+        <div class="protect-overlay-title" id="protect-overlay-title">High Risk Detected</div>
+        <div class="protect-overlay-sub" id="protect-overlay-sub">Possible wallet drain behavior</div>
+        <div class="protect-overlay-actions">
+          <button class="protect-btn-leave" id="protect-leave-btn">Leave Site</button>
+          <button class="protect-btn-ignore" id="protect-ignore-btn">Ignore</button>
+        </div>
+        <button class="protect-explain-btn" id="protect-explain-btn">Why is this dangerous?</button>
+        <div class="protect-explain-result" id="protect-explain-result" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- ── LIFE DIRECTIVE ─────────────────────────────── -->
+    <section class="card goal-card">
+      <div class="label">Life Directive</div>
+      <div class="goal-text" id="goal-display">Not Set</div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="progress-text" id="progress-text">0% FUTURE SCORE</div>
+    </section>
+
+    <!-- ── FUTURE SCORE RING ──────────────────────────── -->
+    <section class="card status-card" id="status-card" data-status="neutral">
+      <div class="score-container">
+        <!-- Outer decorative rotating rings -->
+        <svg width="140" height="140" style="position:absolute;top:0;left:0;animation:outer-ring-rotate 9s linear infinite;">
+          <circle cx="70" cy="70" r="66" fill="none" stroke="rgba(0,224,255,0.12)" stroke-width="1" stroke-dasharray="6 8" stroke-linecap="round"/>
+        </svg>
+        <svg width="140" height="140" style="position:absolute;top:0;left:0;animation:outer-ring-rotate 14s linear infinite reverse;">
+          <circle cx="70" cy="70" r="61" fill="none" stroke="rgba(255,204,0,0.08)" stroke-width="1" stroke-dasharray="3 14" stroke-linecap="round"/>
+        </svg>
+        <svg class="score-ring" width="120" height="120">
+          <circle class="ring-bg" cx="60" cy="60" r="45"></circle>
+          <circle class="ring-progress" id="score-ring-progress" cx="60" cy="60" r="45"></circle>
+        </svg>
+        <div class="score-value" id="score-value">--</div>
+      </div>
+      <div class="status-label" id="status-label">STATUS: ⚪ STANDBY</div>
+    </section>
+
+    <!-- ── CURRENT SIGNAL ─────────────────────────────── -->
+    <section class="card page-card">
+      <div class="label">📍 Current Signal</div>
+      <div class="page-title" id="page-title">Awaiting data stream...</div>
+      <div class="ai-message-container">
+        <div class="ai-message" id="ai-message">Future monitoring active...</div>
+      </div>
+      <button class="btn voice-btn" id="speak-btn">🔊 Future Voice</button>
+      <div class="voice-wave" id="voice-wave">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <!-- ── PATH METRICS ───────────────────────────────── -->
+    <section class="card time-card">
+      <div class="label">Path Metrics</div>
+      <div class="time-row focus">
+        <span>⏱ On Path</span>
+        <span id="focus-time">0m 0s</span>
+      </div>
+      <div class="time-row wasted">
+        <span>💀 Path Cost</span>
+        <span id="wasted-time">0m 0s</span>
+      </div>
+      <div class="time-row-divider"></div>
+      <div class="time-row">
+        <span style="color:var(--text-muted);font-weight:400;">🎯 Success Probability</span>
+        <span id="focus-score-display">—</span>
+      </div>
+    </section>
+
+    <!-- ── CRITICAL MOVES ─────────────────────────────── -->
+    <section class="card tasks-card">
+      <div class="label">
+        🚀 Critical Moves
+        <button id="add-task-btn" class="text-btn">[+ ADD]</button>
+      </div>
+      <div class="task-list" id="task-list">
+        <!-- Tasks injected here -->
+      </div>
+    </section>
+
+    <!-- ── PATH AI — NEXT MOVE ────────────────────────── -->
+    <section class="card suggest-card">
+      <div class="label">🎯 Path AI — Next Move</div>
+      <div class="suggestion-text" id="suggestion-text">Calculating optimal path...</div>
+      <button class="btn outline-btn" id="get-suggestion-btn">Calculate Next Move</button>
+    </section>
+
+    <!-- ── CINEMATIC SIMULATION OVERLAY ──────────────────────── -->
+    <div id="sim-overlay" class="sim-overlay" style="display:none;" aria-live="polite">
+      <div class="sim-overlay-inner">
+        <div class="sim-overlay-logo">PATHPILOT</div>
+        <div class="sim-overlay-headline" id="sim-overlay-headline">Analyzing your future...</div>
+        <div class="sim-overlay-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="sim-phase-list" id="sim-phase-list"></div>
+        <div class="sim-overlay-sub">AI SIMULATION IN PROGRESS</div>
+      </div>
+    </div>
+
+    <!-- ── KIMI FUTURE SIMULATION ─────────────────────── -->
+    <section class="card simulate-card" id="simulate-card">
+      <div class="label">🔮 Kimi Future Simulation Engine</div>
+      <div class="simulate-subtitle">See 3 diverging futures based on your current path data</div>
+      <button class="btn simulate-btn" id="simulate-btn">&#9889; SIMULATE MY FUTURE</button>
+      <div id="simulate-results" style="display:none; margin-top:16px;">
+        <!-- Results injected by sidepanel.js (staggered path cards) -->
+      </div>
+      <!-- Voice replay — shown after simulation -->
+      <div id="sim-voice-replay" style="display:none; margin-top:10px;">
+        <button class="sim-voice-replay-btn" id="sim-voice-replay-btn">🔊 Replay Future Voice</button>
+      </div>
+    </section>
+
+    <!-- ── CONTROLS ───────────────────────────────────── -->
+    <section class="controls">
+      <button class="control-btn" id="strict-mode-btn">⚙️ Discipline: Off</button>
+      <button class="control-btn" id="mic-btn">🎤 Voice Input</button>
+    </section>
+
+  </div>
+
+  <script src="sidepanel.js"></script>
+
+  <!-- ── SESSION END MODAL ──────────────────────────────── -->
+  <div id="session-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content card">
+      <h2 style="color:var(--gold);font-family:var(--font-display);margin-bottom:18px;font-size:13px;letter-spacing:2.5px;font-weight:700;">PATH SESSION COMPLETE</h2>
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+        <span style="color:var(--text-muted);font-size:12px;">Total Time</span>
+        <span id="modal-total-time" style="font-weight:600;font-size:13px;">--</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+        <span style="color:var(--text-muted);font-size:12px;">On-Path Time</span>
+        <span id="modal-focus-time" style="color:var(--success);font-weight:600;font-size:13px;">--</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:14px;">
+        <span style="color:var(--text-muted);font-size:12px;">Path Cost</span>
+        <span id="modal-wasted-time" style="color:var(--danger);font-weight:600;font-size:13px;">--</span>
+      </div>
+      <div style="margin-bottom:18px;font-size:12px;color:var(--text-muted);">
+        Deviations Blocked: <span id="modal-distractions" style="color:var(--text);font-weight:700;">0</span>
+      </div>
+      <button id="new-session-btn" class="btn" style="background:linear-gradient(135deg,#C9970A 0%,#F5B942 100%);color:#060A11;border:none;font-weight:800;letter-spacing:1.5px;">BEGIN NEW SESSION</button>
+    </div>
+  </div>
+
+</body>
+</html>

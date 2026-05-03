@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PathPilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-top">
+        <div class="title">PATHPILOT</div>
+        <div class="status-indicator" id="status-indicator">
+          <div class="live-dot"></div>
+          <span class="status-text">STANDBY</span>
+        </div>
+      </div>
+      <div class="subtitle">Founder&nbsp;Navigation&nbsp;System</div>
+    </div>
+
+    <!-- GOAL INPUT -->
+    <div class="goal-section">
+      <div class="goal-label">Life Directive</div>
+      <div style="display:flex;gap:8px;">
+        <input
+          type="text"
+          id="goal-input"
+          class="goal-input"
+          placeholder="e.g. Build a software company before 30"
+          autocomplete="off"
+          style="flex:1;"
+        >
+        <button id="mic-btn" class="mic-btn">🎤</button>
+      </div>
+      <div class="mission-feedback" id="mission-feedback">Path Locked. Executing toward your future.</div>
+    </div>
+
+    <!-- FOUNDER DISCIPLINE MODE -->
+    <div class="controls">
+      <div class="strict-mode-info">
+        <span class="strict-mode-label">Founder Discipline Mode</span>
+        <span class="strict-mode-desc">Enforce extreme path constraints</span>
+      </div>
+      <div class="toggle-switch" id="toggle-switch">
+        <div class="toggle-switch-thumb"></div>
+      </div>
+    </div>
+
+    <!-- CRITICAL MOVES SECTION -->
+    <div class="tasks-section">
+      <div class="tasks-header">
+        <span class="tasks-label">Critical Moves</span>
+        <span class="distraction-badge">⚡ <span id="distraction-count">0</span> path deviations</span>
+      </div>
+      <ul class="popup-task-list" id="popup-task-list">
+        <li class="task-empty">No moves defined yet.</li>
+      </ul>
+      <div class="task-add-row">
+        <input
+          type="text"
+          id="task-input"
+          class="task-input"
+          placeholder="Add a critical move..."
+          autocomplete="off"
+        >
+        <button class="task-add-btn" id="add-task-btn">+</button>
+      </div>
+    </div>
+
+    <!-- MAIN BUTTON -->
+    <button class="start-btn" id="activate-btn">
+      <span class="btn-text">ACTIVATE PATHPILOT</span>
+      <span class="loading-text" id="loading-text">Initializing...</span>
+    </button>
+
+    <!-- OPEN MISSION CONTROL -->
+    <div class="secondary-btn-wrapper">
+      <button class="secondary-btn" id="open-panel">
+        <span class="mc-icon">⬡</span>
+        <span class="mc-label">Open Mission Control</span>
+      </button>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
