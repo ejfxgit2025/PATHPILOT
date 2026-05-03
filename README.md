@@ -2,9 +2,6 @@
 
 > **Your browser shows what you’re doing. PathPilot shows where it leads.**
 
-![PathPilot UI](./screenshot.png)
-
----
 
 ## ⚡ What is PathPilot?
 
