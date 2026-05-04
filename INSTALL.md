@@ -16,9 +16,7 @@
    ```
 4. Edit the `.env` file and add your actual API keys:
    - `OPENROUTER_API_KEY`: Get from OpenRouter.ai
-   - `FIRECRAWL_API_KEY`: Get from Firecrawl.dev
    - `ELEVENLABS_API_KEY`: Get from ElevenLabs.io
-   - `SENTINEL_SECRET`: Create a strong random string (e.g., `my_super_secret_key_123`)
 5. Start the backend server:
    ```bash
    npm start
@@ -31,13 +29,12 @@
 2. Enable **Developer mode** (toggle switch in the top right corner).
 3. Click **Load unpacked**.
 4. Select the `extension` directory from this project.
-5. The SENTINEL extension should now appear in your list of extensions.
+5. The PATHPILOT extension should now appear in your list of extensions.
 
 ## 3. Activation
 
-1. Click the SENTINEL icon in your Chrome toolbar to open the popup.
+1. Click the PATHPILOT icon in your Chrome toolbar to open the popup.
 2. Enter your goal (e.g., "Learn React Hooks").
-3. Enter the `SENTINEL_SECRET` you defined in your backend `.env` file.
-4. Click **ACTIVATE SENTINEL**.
-5. Click **Open Full Panel** to view the cyberpunk mission control UI.
-6. Browse the web! SENTINEL will monitor your activity and guide you towards your goal.
+3. Click **ACTIVATE PATHPILOT**.
+4. Click **Open Full Panel** to view the cyberpunk mission control UI.
+5. Browse the web! PATHPILOT will monitor your activity and guide you towards your goal.
