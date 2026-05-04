@@ -1,8 +1,26 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 build/
 dist/
+
+# Coverage
 coverage/
+
+# OS files
 .DS_Store
+
+# Logs
 *.log
-.env*
+
+# Environment files (keep secrets private)
+.env
+.env.local
+.env.production
+
+# Allow example env (important for repo)
+!.env.example
+
+# Keys / sensitive files
 *.pem
