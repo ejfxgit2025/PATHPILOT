@@ -243,6 +243,16 @@ They fail because they don’t see consequences early enough.
 **PathPilot makes consequences visible — instantly.**
 
 ---
+## 🎥 Demo Video
+
+[Watch on YouTube](https://youtu.be/37gJ0wOTmhk?si=_nEUf8n9UxCMuVFf)
+
+---
+
+## 🧪 Quick Clip
+
+[Watch on X](https://x.com/i/status/2051108016322470109)
+
 
 ## 🚀 Final Line
 
