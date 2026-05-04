@@ -129,14 +129,17 @@ L4 — ElevenLabs (voice narration)
 
 ---
 
-## 🛠 Tech Stack
+🛠 Tech Stack
+Chrome Extension (Manifest V3)
+Node.js + Express
+OpenRouter (multi-model routing)
+Kimi K2 / K2.5
+Hermes 3 (Nous Research)
+🔊 Voice System
+ElevenLabs (primary cinematic voice)
+Browser TTS (fallback if API fails)
 
-* Chrome Extension (Manifest V3)
-* Node.js + Express
-* OpenRouter (multi-model routing)
-* Kimi K2 / K2.5
-* Hermes 3 (Nous Research)
-* ElevenLabs (voice)
+👉 Ensures voice feedback always works, even without external API
 
 ---
 
