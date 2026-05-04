@@ -89,7 +89,7 @@ Example output:
 
 ---
 
-## 🧠 AI Architecture (Kimi-First Stack)
+## 🧠 AI Architecture
 
 ```
 Browser Event
