@@ -50,6 +50,7 @@ That changes behavior instantly.
 * ⛔ Discipline enforcement mode
 * ⏱ Focus vs distraction tracking
 * 🚀 Critical task system
+* 🛡️ Scam / phishing detection & protection
 * 🎤 Voice-based goal input
 
 ---
@@ -88,6 +89,21 @@ Example output:
 👉 This is the **main hackathon-winning feature**
 
 ---
+
+## 🛡️ Safety & Scam Protection
+
+PathPilot actively protects users from harmful or low-value browsing.
+
+* 🚫 Detects scam / phishing / fake crypto sites
+* ⚠️ Flags high-risk pages in real-time
+* 🧠 AI evaluates intent (waste vs productive vs dangerous)
+* 🔒 Optional blocking for unsafe or distracting sites
+
+Instead of just warning, PathPilot explains:
+
+> “This site is likely a scam or time-waste. Continuing increases risk of loss or distraction.”
+
+👉 This turns passive browsing into **active decision awareness**
 
 ## 🧠 AI Architecture
 
